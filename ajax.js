@@ -20,21 +20,39 @@
 
 //Ensures that the script runs only after the DOM is fully loaded.
 $(document).ready(function() {
-    // Attach a submit event handler to the form with ID 'converterForm'
+    // List of currencies (you can expand this list as needed)
+    const currencies = ["USD", "EUR", "GBP", "JPY", "AUD", "CAD"];
+
+    // Populate the currency dropdowns
+    const fromSelect = $('#from');
+    const toSelect = $('#to');
+    currencies.forEach(currency => {
+        fromSelect.append(new Option(currency, currency));
+        toSelect.append(new Option(currency, currency));
+    });
+
+    // Attach a submit event handler to the form
     $('#converterForm').on('submit', function(event) {
-        // Prevent the default form submission behavior
         event.preventDefault();
 
-        // Use jQuery's ajax method to send a GET request
+        // Send AJAX request
         $.ajax({
-            url: 'form_converter.php',  // The URL to send the request to
-            type: 'GET',               // The type of request to be made (GET)
-            data: $(this).serialize(), // Serialize the form data for submission
+            url: 'form_converter.php',
+            type: 'GET',
+            data: $(this).serialize(),
             success: function(response) {
-                // On success, display the response in the HTML element with ID 'result'
-                $('#result').html(response);
+                // Display the result
+                $('#result').val(response);
             }
         });
+    });
+
+    // Switch currencies button functionality
+    $('#switchBtn').on('click', function() {
+        let fromCurrency = $('#from').val();
+        let toCurrency = $('#to').val();
+        $('#from').val(toCurrency);
+        $('#to').val(fromCurrency);
     });
 });
 
