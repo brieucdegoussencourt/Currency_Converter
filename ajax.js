@@ -31,6 +31,11 @@ $(document).ready(function() {
         toSelect.append(new Option(currency, currency));
     });
 
+    // Set the default value of the 'from' select to 'EUR'
+    fromSelect.val('EUR');
+    // Set the default value of the 'from' select to 'EUR'
+    toSelect.val('USD');
+
     // Attach a submit event handler to the form
     $('#converterForm').on('submit', function(event) {
         event.preventDefault();
@@ -53,6 +58,14 @@ $(document).ready(function() {
         let toCurrency = $('#to').val();
         $('#from').val(toCurrency);
         $('#to').val(fromCurrency);
+    });
+
+     // Ensure 'EUR' and 'USD' are set as the default values when the form is reset
+     $('#converterForm').on('reset', function() {
+        setTimeout(function() { // Using setTimeout to ensure it runs after the form reset
+            fromSelect.val('EUR');
+            toSelect.val('USD');
+        }, 0);
     });
 });
 
