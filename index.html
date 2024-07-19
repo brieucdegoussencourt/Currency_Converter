@@ -6,17 +6,46 @@
     <title>CurrencyConverter</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- THIS IS MY HTML FORM 
- Method and Action attribute are handled through form_converter.php-->
-    <form id="converterForm">
-        <label for="amount">How much do you want to multiply by 2?</label>
-        <input type="number" name="amount" id="amount" min="0" step="any" required>
-        <input type="submit" value="Submit">
-        <input type="reset" name="reset" value="Reset">
-    </form>
-    <div id="result"></div>
+    <div
+        class="container"
+    >
+    <header>
+        <h1>Currency Converter</h1>
+        <h2>Live currency conversion using <a href="https://rapidapi.com/natkapral/api/currency-converter5/" target="_blank">API</a></h2>
+    </header>
+    
+    <main>
+        <section class="conversion">
+    
+    <!-- THIS IS MY HTML FORM 
+    Method and Action attribute are handled through form_converter.php-->
+    
+        <form id="converterForm">
+            <label for="amount">Amount?</label>
+            <input type="number" name="amount" id="amount" min="0" step="any" placeholder="Enter amount here" required>
+            <label for="amount">From</label>
+            <input type="text" name="from" id="from" placeholder="Enter currency here" role="combobox" >
+            <label for="amount">To</label>
+            <input type="text" name="to" id="to" placeholder="Enter currency here" >
+            <br><br>
+            <input type="submit" value="Submit">
+            <br><br>
+            <label for="result">Result</label>
+            <input type="number" name="result" id="result" placeholder="Here is your result" >
+            <br><br>
+            <input type="reset" name="reset" value="Reset">
+        </form>
+            
+        </section>
+    </main>
+    </div>
+    
+
+   
+
 
 <!-- HERE ARE MY SCRIPTS FOR HANDLING AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
