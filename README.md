@@ -3,22 +3,18 @@
 
 An amazing web application that allows users to convert currencies using live exchange rates.
 
-JULY 2024 - Junior Dev @ BeCode
+## WHAT? WHEN? WHY?
+
+This challenge is part of the web developer training @ [Becode](https://becode.org/fr/) - July 2024.
+
+Today is Friday and this exercice is the first of the BACKEND track we started at the beginning of the week.
+
+The aim of the project is to consolidate what we've learned so far and to develop our PHP skills on local server environment.
+
+Here are the full [guidelines](/guidelines.md).
 
 
 ## Key Features
-
-### Form Handling with AJAX
-- **Prevent Default Form Submission**
-  - Prevents traditional form submission to avoid full page reloads.
-- **Asynchronous Request Handling**
-  - Sends form data to the server asynchronously using a GET request.
-- **Form Data Serialization**
-  - Serializes the form data for sending as a query string.
-- **Dynamic Content Update**
-  - Updates a specific part of the web page with the server's response.
-- **User Experience Improvement**
-  - Provides immediate feedback and reduces wait times.
 
 ### Working with a Local Server Configuration (MAMP)
 - **Local Development Environment**
@@ -32,6 +28,18 @@ JULY 2024 - Junior Dev @ BeCode
 - **Easy Configuration**
   - MAMP provides an easy-to-configure environment with a user-friendly interface to manage the Apache server and PHP settings.
 
+### Form Handling with AJAX
+- **Prevent Default Form Submission**
+  - Prevents traditional form submission to avoid full page reloads.
+- **Asynchronous Request Handling**
+  - Sends form data to the server asynchronously using a GET request.
+- **Form Data Serialization**
+  - Serializes the form data for sending as a query string.
+- **Dynamic Content Update**
+  - Updates a specific part of the web page with the server's response.
+- **User Experience Improvement**
+  - Provides immediate feedback and reduces wait times.
+
 ### Technologies Used
 - **HTML5**
   - Structured and semantic markup.
@@ -41,12 +49,14 @@ JULY 2024 - Junior Dev @ BeCode
 - **JavaScript/jQuery**
   - DOM manipulation and AJAX requests.
   - Dynamic form handling.
+- **PHP**
+  - Server-side logic and handling (form_converter.php).
 - **API Integration**
   - Uses a live currency conversion API for real-time exchange rates.
 
 ## Screenshot
 
-![Currency Converter Screenshot](/assets/Screenshot%202024-07-19%20at%2016.25.06.png)
+<img src="/assets/Screenshot%202024-07-19%20at%2016.25.06.png" alt="Currency Converter Screenshot" width="300">
 
 ## Files
 
@@ -73,3 +83,6 @@ JULY 2024 - Junior Dev @ BeCode
 5. **Use the 'Switch' button** to swap the 'from' and 'to' currencies.
 6. **Click 'Reset'** to reset the form to default values.
 
+## AUTHOR
+
+**Brieuc Degoussencourt** - [GitHub](https://github.com/brieucdegoussencourt)
