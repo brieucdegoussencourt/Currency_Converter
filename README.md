@@ -14,6 +14,11 @@ The aim of the project is to consolidate what we've learned so far and to develo
 Here are the full [guidelines](/guidelines.md).
 
 
+## LIVE SITE
+
+Site is live [HERE](https://brieucdegoussencourt.github.io/Currency_Converter/) but as it is currently hosted on GitHub and github doesn't handle PHP you can't use the converter.
+
+
 ## Key Features
 
 ### Working with a Local Server Configuration (MAMP)
