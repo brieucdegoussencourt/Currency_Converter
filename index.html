@@ -6,18 +6,14 @@
     <title>CurrencyConverter</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="container">
         <header>
             <h1>Currency Converter</h1>
             <h2>Live currency conversion using <a href="https://rapidapi.com/natkapral/api/currency-converter5/"
                     target="_blank">API</a></h2>
         </header>
-
         <main>
-            <section class="conversion">
                 <!-- This is my form 
 Method and Action attribute are handled through form_converter.php-->
                 <form id="converterForm">
@@ -36,19 +32,13 @@ Method and Action attribute are handled through form_converter.php-->
                     <br><br>
                     <input type="text" id="result" placeholder="This is your result" readonly>
                     <br><br>
+                    <p id="Conversion Rate"></p>
                     <input type="reset" value="Reset">
                 </form>
-            </section>
         </main>
     </div>
-
-
-    <!-- THIS IS MY HTML FORM 
-    Method and Action attribute are handled through form_converter.php-->
-
     <!-- HERE ARE MY SCRIPTS FOR HANDLING AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="ajax.js"></script>
-
 </body>
 </html>
