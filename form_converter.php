@@ -1,8 +1,9 @@
 <?php
+
 // Enable error reporting for debugging purposes
-ini_set('display_errors', 1); // Display errors
-ini_set('display_startup_errors', 1); // Display errors on startup
-error_reporting(E_ALL); // Report all types of errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Check if 'amount', 'from', and 'to' parameters are set in the GET request
 if (isset($_GET['amount']) && isset($_GET['from']) && isset($_GET['to'])) {
@@ -26,28 +27,28 @@ if (isset($_GET['amount']) && isset($_GET['from']) && isset($_GET['to'])) {
 
     // Execute the cURL request and store the response
     $response = curl_exec($ch);
-    
+
     // Check if there is any cURL error
-    if(curl_errno($ch)) {
+    if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch); // Output the error message
+    } else {
+        // Decode the JSON response into an associative array
+        $data = json_decode($response, true);
+
+        // Check if the desired conversion rate is available in the response
+        if (isset($data['rates'][$to]['rate_for_amount'])) {
+            // Retrieve the conversion result
+            $result = $data['rates'][$to]['rate_for_amount'];
+            // Output the conversion result
+            echo $result . ' ' . $to;
+        } else {
+            // Output an error message if the conversion data is not found
+            echo 'Error retrieving conversion data';
+        }
     }
 
     // Close the cURL session
     curl_close($ch);
-
-    // Decode the JSON response into an associative array
-    $data = json_decode($response, true);
-    
-    // Check if the desired conversion rate is available in the response
-    if (isset($data['rates'][$to]['rate_for_amount'])) {
-        // Retrieve the conversion result
-        $result = $data['rates'][$to]['rate_for_amount'];
-        // Output the conversion result
-        echo $result . ' ' . $to;
-    } else {
-        // Output an error message if the conversion data is not found
-        echo 'Error retrieving conversion data';
-    }
 } else {
     // Output an error message if the required parameters are not provided
     echo 'Invalid parameters';
