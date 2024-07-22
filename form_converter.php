@@ -1,5 +1,12 @@
 <?php
 
+// Include the configuration file
+$config = require './config.php';
+
+// Retrieve the API key and URL from the configuration file
+$api_key = $config['api_key'];
+$api_url = $config['api_url'];
+
 // Enable error reporting for debugging purposes
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -12,17 +19,13 @@ if (isset($_GET['amount']) && isset($_GET['from']) && isset($_GET['to'])) {
     $from = $_GET['from'];
     $to = $_GET['to'];
 
-    // Replace with your actual API key and API endpoint
-    $apiKey = '55990b959fmsh6182a2798a0d28bp19f5f2jsn9b66eea0e0a7';
-    $apiUrl = "https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=$from&to=$to&amount=$amount&language=en";
-
     // Initialize cURL session
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiUrl); // Set the API URL
+    curl_setopt($ch, CURLOPT_URL, "$api_url?amount=$amount&from=$from&to=$to"); // Set the API URL with parameters
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return the response as a string
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'X-RapidAPI-Host: currency-converter5.p.rapidapi.com',
-        'X-RapidAPI-Key: ' . $apiKey
+        'X-RapidAPI-Key: ' . $api_key
     ]); // Set the HTTP headers for the API request
 
     // Execute the cURL request and store the response
@@ -36,9 +39,11 @@ if (isset($_GET['amount']) && isset($_GET['from']) && isset($_GET['to'])) {
         $data = json_decode($response, true);
 
         // Check if the desired conversion rate is available in the response
-        if (isset($data['rates'][$to]['rate_for_amount'])) {
-            // Retrieve the conversion result
-            $result = $data['rates'][$to]['rate_for_amount'];
+        if (isset($data['rates'][$to]['rate'])) {
+            // Retrieve the conversion rate
+            $rate = $data['rates'][$to]['rate'];
+            // Calculate the conversion result
+            $result = $amount * $rate;
             // Output the conversion result
             echo $result . ' ' . $to;
         } else {
@@ -53,4 +58,5 @@ if (isset($_GET['amount']) && isset($_GET['from']) && isset($_GET['to'])) {
     // Output an error message if the required parameters are not provided
     echo 'Invalid parameters';
 }
+
 ?>
