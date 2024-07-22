@@ -15,28 +15,33 @@
                     target="_blank">API</a></h2>
         </header>
         <main>
-                <!-- This is my form 
+            <!-- This is my form 
 Method and Action attribute are handled through form_converter.php-->
-                <form id="converterForm">
-                    <input type="number" name="amount" id="amount" min="0" step="any" placeholder="Enter amount here"
-                        required>
-                    <select name="from" id="from">
-                        <!-- Currency options will be added dynamically -->
-                    </select>
-                    <button type="button" id="switchBtn"><img
-                            src="./assets/swap_vert_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
-                            alt="switch vertically icon" width="30"></button>
-                    <select name="to" id="to">
-                        <!-- Currency options will be added dynamically -->
-                    </select>
-                    <input type="submit" value="Convert">
-                    <br><br>
-                    <input type="text" id="result" placeholder="This is your result" readonly>
-                    <br><br>
-                    <p id="ConversionRate"></p>
-                    <input type="reset" value="Reset">
-                </form>
+            <form id="converterForm">
+                <input type="number" name="amount" id="amount" min="0" step="any" placeholder="Enter amount here"
+                    required>
+                <select name="from" id="from">
+                    <!-- Currency options will be added dynamically -->
+                </select>
+                <button type="button" id="switchBtn"><img
+                        src="./assets/swap_vert_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg" alt="switch vertically icon"
+                        width="30"></button>
+                <select name="to" id="to">
+                    <!-- Currency options will be added dynamically -->
+                </select>
+                <input type="submit" value="Convert">
+                <br><br>
+                <input type="text" id="result" placeholder="This is your result" readonly>
+                <br><br>
+                <p id="ConversionRate"></p>
+                <input type="reset" value="Reset">
+            </form>
         </main>
+        <footer>
+            <a href="https://github.com/brieucdegoussencourt" target="_blank"><img
+                    src="./assets/github_icon_grey-removebg-preview.png" width="86" height="50" alt="github icon"></a>
+            <h6>brieucdegoussencourt / July 2024</h6>
+        </footer>
     </div>
     <!-- HERE ARE MY SCRIPTS FOR HANDLING AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
