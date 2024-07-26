@@ -1,0 +1,15 @@
+{
+    "name": "brieuc/currency_converter",
+    "autoload": {
+        "psr-4": {
+            "Brieuc\\CurrencyConverter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "brieucdegoussencourt",
+            "email": "brieuc.degoussencourt@gmail.com"
+        }
+    ],
+    "require": {}
+}
